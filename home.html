@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Aplicación de Votaciones</title>
+    <!-- Tailwind CSS CDN (Asegúrate de usar la versión correcta o configurarlo localmente) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Asegúrate de incluir configuraciones personalizadas de Tailwind para el modo oscuro si es necesario */
+        body { background-color: #2C2F33; }
+
+        @keyframes fadeIn {
+         from { opacity: 0; }
+         to { opacity: 1; }
+        }
+        .animate-fadeIn {
+        animation: fadeIn 0.5s ease-out forwards;
+        }
+
+    </style>
+</head>
+<body class="text-gray-300 bg-gray-900">
+
+    <!-- Barra de Navegación -->
+    <nav class="bg-gray-800 border-b border-gray-700">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo o Nombre de la Aplicación -->
+                <a href="#" class="text-blue-400 text-xl font-semibold">VotaApp</a>
+                <!-- Menú de Navegación -->
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-gray-300 hover:text-white">Inicio</a>
+                    <a href="#" class="text-gray-300 hover:text-white">Explorar</a>
+                    <a href="#" class="text-gray-300 hover:text-white">Notificaciones</a>
+                    <a href="#" class="text-gray-300 hover:text-white">Perfil</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+ 
+    <!-- Contenido Principal -->
+    <main class="py-6">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-6">
+                <!-- Columna Izquierda: Votaciones Activas -->
+                <div class="w-full md:w-2/3">
+                    <h2 class="text-xl font-semibold text-gray-300 mb-4">Votaciones Activas</h2>
+                    <!-- Lista de Votaciones Activas -->
+                    <div class="space-y-4">
+                        <div class="p-4 bg-gray-800 rounded-lg shadow border border-gray-700">
+                            <!-- Ejemplo de Votación Activa -->
+                            <h3 class="font-semibold text-white">¿Cuál es tu color favorito?</h3>
+                            <!-- Opciones de Votación -->
+                            <div class="mt-2">
+                                <!-- Opción 1 -->
+                                <button class="voting-option flex items-center text-blue-400 hover:text-blue-500 mb-2">
+                                    <span class="h-6 w-6 mr-2 border border-blue-400 rounded-full flex items-center justify-center">
+                                        <!-- SVG del tilde, inicialmente oculto con la clase "hidden" -->
+                                        <svg class="hidden h-4 w-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    </span>
+                                    Azul
+                                </button>                                
+                                <!-- Opción 2 -->
+                                <button class="voting-option flex items-center text-blue-400 hover:text-blue-500 mb-2">
+                                    <span class="h-6 w-6 mr-2 border border-blue-400 rounded-full flex items-center justify-center">
+                                        <!-- SVG del tilde, inicialmente oculto con la clase "hidden" -->
+                                        <svg class="hidden h-4 w-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    </span>
+                                    Rojo
+                                </button>                                
+                                <!-- Opción 3 -->
+                                <button class="voting-option flex items-center text-blue-400 hover:text-blue-500 mb-2">
+                                    <span class="h-6 w-6 mr-2 border border-blue-400 rounded-full flex items-center justify-center">
+                                        <!-- SVG del tilde, inicialmente oculto con la clase "hidden" -->
+                                        <svg class="hidden h-4 w-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    </span>
+                                    Verde
+                                </button>   
+                                    <!-- Boton de listo que esta oculto -->
+                                    <button id="doneButton" class="hidden mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                                        Listo
+                                    </button>                                                                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!-- Columna Derecha: Votaciones Cerradas -->
+                <div class="w-full md:w-1/3">
+                    <h2 class="text-xl font-semibold text-gray-300 mb-4">Votaciones Cerradas</h2>
+                    <!-- Lista de Votaciones Cerradas -->
+                    <div class="space-y-4">
+                        <div class="p-4 bg-gray-800 rounded-lg shadow border border-gray-700">
+                            <!-- Ejemplo de Votación Cerrada -->
+                            <h3 class="font-semibold text-white">Resultado: ¿Cuál es tu color favorito?</h3>
+                            <!-- Resultados -->
+                            <div class="mt-2">
+                                <!-- Reemplaza estos porcentajes con los valores reales obtenidos -->
+                                <div class="mb-4">
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-blue-400">Azul</span>
+                                        <span class="text-white">50%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                        <div class="bg-blue-500 h-2.5 rounded-full" style="width: 50%"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-green-400">Verde</span>
+                                        <span class="text-white">30%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                        <div class="bg-green-500 h-2.5 rounded-full" style="width: 30%"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-red-400">Rojo</span>
+                                        <span class="text-white">20%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                        <div class="bg-red-500 h-2.5 rounded-full" style="width: 20%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (Opcional) -->
+    <footer class="bg-gray-800 border-t border-gray-700 mt-8 py-4">
+        <div class="max-w-5xl mx-auto px-4 text-center text-sm text-gray-500">
+            © 2024 VotaApp. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
